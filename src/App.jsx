@@ -7,7 +7,7 @@ import About from './pages/about/about';
 import Login from './pages/Login/Login';
 
 const routes = (
-  <Router>
+  <Router basename='testcases'> 
     <Routes>
       <Route path="/" exact element={<Login />}/>
       {/* <Route path="/dashboard" exact element={<Dashboard />}/> */}
