@@ -4,11 +4,12 @@ require('dotenv').config();
 
 const LogoutButton = ({ onLogout }) => {
   const navigate = useNavigate();
+  const SERVER_URL = "https://testcases-server.onrender.com";
 
   const handleLogout = async () => {
     try {
         // Call the backend logout endpoint
-        const response = await fetch(`${process.env.SERVER_URL}/auth/logout`, {
+        const response = await fetch(`${SERVER_URL}/auth/logout`, {
             method: "GET",
             credentials: "include", // Ensures cookies are sent with the request
         });

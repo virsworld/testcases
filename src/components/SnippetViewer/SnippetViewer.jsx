@@ -6,6 +6,7 @@ import { basicSetup } from "codemirror";
 require('dotenv').config();
 
 const SnippetViewer = ({ testCase, expectedOutput, directory, uploader, name }) => {
+  const SERVER_URL = "https://testcases-server.onrender.com";
   const [testCaseContent, setTestCaseContent] = useState("");
   const [expectedOutputContent, setExpectedOutputContent] = useState("");
   const [error, setError] = useState("");
@@ -16,7 +17,7 @@ const SnippetViewer = ({ testCase, expectedOutput, directory, uploader, name }) 
   const fetchSnippetContent = async (filename, setContent) => {
     try {
       const response = await fetch(
-        `${process.env.SERVER_URL}/api/snippets?directory=${directory}&filename=${filename}`
+        `${SERVER_URL}/api/snippets?directory=${directory}&filename=${filename}`
       );
       if (!response.ok) {
         throw new Error(`Failed to fetch ${filename}: ${response.statusText}`);

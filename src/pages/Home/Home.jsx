@@ -3,18 +3,18 @@ import CourseCard from "../../components/CourseCard/CourseCard";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import LoginButton from "../../components/LoginButton/LoginButton";
 import AboutRedirectButton from "../../components/AboutRedirectButton/AboutRedirectButton";
-require('dotenv').config();
 
 const Home = () => {
+  const SERVER_URL = "https://testcases-server.onrender.com";
   const [courses, setCourses] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Tracks login status
   const [loading, setLoading] = useState(true); // Tracks loading state
   const PORT = 5001;
-  const COURSE_API_PATH = `${process.env.SERVER_URL}/api/courses`;
+  const COURSE_API_PATH = `${SERVER_URL}/api/courses`;
 
   // Fetch authentication status
   useEffect(() => {
-    fetch(`${process.env.SERVER_URL}/auth/status`, { credentials: "include" })
+    fetch(`${SERVER_URL}/auth/status`, { credentials: "include" })
       .then((res) => res.json())
       .then((data) => setIsLoggedIn(data.loggedIn))
       .catch((err) => console.error("Error fetching auth status:", err));

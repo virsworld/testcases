@@ -6,6 +6,7 @@ import { basicSetup } from "codemirror";
 require('dotenv').config();
 
 const SnippetForm = ({ directory, numLabs, onSnippetAdded }) => {
+  const SERVER_URL = "https://testcases-server.onrender.com";
   const [fileName, setFileName] = useState("");
   const [testCaseContent, setTestCaseContent] = useState("");
   const [outputContent, setOutputContent] = useState("");
@@ -70,7 +71,7 @@ const SnippetForm = ({ directory, numLabs, onSnippetAdded }) => {
       const testCaseFilename = `${fileName}_input.txt`;
       const outputFilename = `${fileName}_output.txt`;
 
-      const response = await fetch(`${process.env.SERVER_URL}/api/snippets?directory=${directory}&lab=${lab}`, {
+      const response = await fetch(`${SERVER_URL}/api/snippets?directory=${directory}&lab=${lab}`, {
         method: "POST",
         credentials: "include",
         headers: {

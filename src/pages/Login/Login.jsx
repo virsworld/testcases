@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import AboutRedirectButton from '../../components/AboutRedirectButton/AboutRedirectButton';
-require('dotenv').config();
 
 const Login = () => {
+  const SERVER_URL = "https://testcases-server.onrender.com";
   const navigate = useNavigate();
 
   const handleGuestLogin = () => {
@@ -14,7 +14,7 @@ const Login = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 space-y-4">
       <a
-        href="${process.env.SERVER_URL}/auth/github"
+        href="https://testcases-server.onrender.com/auth/github"
         className="bg-primary text-white px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300
          hover:bg-primary-dark hover:scale-105"
       >

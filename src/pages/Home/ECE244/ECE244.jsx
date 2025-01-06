@@ -6,15 +6,15 @@ import LogoutButton from "../../../components/LogoutButton/LogoutButton";
 import LoginButton from "../../../components/LoginButton/LoginButton";
 import AboutRedirectButton from "../../../components/AboutRedirectButton/AboutRedirectButton";
 import _ from "lodash";
-require('dotenv').config();
 
 const ECE244 = () => {
   const PORT = 5001;
   const COURSE_CODE = "ECE244";
-  const GROUPED_SNIPPETS_PATH = `${process.env.SERVER_URL}/api/snippets/grouped?directory=${COURSE_CODE}`;
-  const USER_SNIPPETS_PATH = `${process.env.SERVER_URL}/api/snippets/user?courseCode=${COURSE_CODE}`;
-  const DELETE_SNIPPET_PATH = `${process.env.SERVER_URL}/api/snippets`;
-  const AUTH_STATUS_PATH = `${process.env.SERVER_URL}/auth/status`;
+  const SERVER_URL = "https://testcases-server.onrender.com";
+  const GROUPED_SNIPPETS_PATH = `${SERVER_URL}/api/snippets/grouped?directory=${COURSE_CODE}`;
+  const USER_SNIPPETS_PATH = `${SERVER_URL}/api/snippets/user?courseCode=${COURSE_CODE}`;
+  const DELETE_SNIPPET_PATH = `${SERVER_URL}/api/snippets`;
+  const AUTH_STATUS_PATH = `${SERVER_URL}/auth/status`;
 
   const [groupedSnippets, setGroupedSnippets] = useState({});
   const [userSnippets, setUserSnippets] = useState([]);
