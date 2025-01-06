@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/home/home';
-import APS105 from './pages/home/aps105/aps105';
+import Home from './pages/Home/Home';
+import APS105 from './pages/Home/APS105/APS105';
 import ECE244 from './pages/Home/ECE244/ECE244';
-import About from './pages/about/about';
+import About from './pages/About/About';
 import Login from './pages/Login/Login';
 
 const routes = (
