@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+require('dotenv').config();
 
 const LogoutButton = ({ onLogout }) => {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ const LogoutButton = ({ onLogout }) => {
   const handleLogout = async () => {
     try {
         // Call the backend logout endpoint
-        const response = await fetch("http://localhost:5001/auth/logout", {
+        const response = await fetch(`${process.env.SERVER_URL}/auth/logout`, {
             method: "GET",
             credentials: "include", // Ensures cookies are sent with the request
         });

@@ -3,6 +3,7 @@ import { EditorState } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
 import { oneDark } from "@codemirror/theme-one-dark";
 import { basicSetup } from "codemirror";
+require('dotenv').config();
 
 const SnippetViewer = ({ testCase, expectedOutput, directory, uploader, name }) => {
   const [testCaseContent, setTestCaseContent] = useState("");
@@ -15,7 +16,7 @@ const SnippetViewer = ({ testCase, expectedOutput, directory, uploader, name }) 
   const fetchSnippetContent = async (filename, setContent) => {
     try {
       const response = await fetch(
-        `http://localhost:5001/api/snippets?directory=${directory}&filename=${filename}`
+        `${process.env.SERVER_URL}/api/snippets?directory=${directory}&filename=${filename}`
       );
       if (!response.ok) {
         throw new Error(`Failed to fetch ${filename}: ${response.statusText}`);

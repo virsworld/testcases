@@ -3,6 +3,7 @@ import { EditorState } from "@codemirror/state";
 import { EditorView } from "codemirror";
 import { oneDark } from "@codemirror/theme-one-dark";
 import { basicSetup } from "codemirror";
+require('dotenv').config();
 
 const SnippetForm = ({ directory, numLabs, onSnippetAdded }) => {
   const [fileName, setFileName] = useState("");
@@ -69,7 +70,7 @@ const SnippetForm = ({ directory, numLabs, onSnippetAdded }) => {
       const testCaseFilename = `${fileName}_input.txt`;
       const outputFilename = `${fileName}_output.txt`;
 
-      const response = await fetch(`http://localhost:5001/api/snippets?directory=${directory}&lab=${lab}`, {
+      const response = await fetch(`${process.env.SERVER_URL}/api/snippets?directory=${directory}&lab=${lab}`, {
         method: "POST",
         credentials: "include",
         headers: {
