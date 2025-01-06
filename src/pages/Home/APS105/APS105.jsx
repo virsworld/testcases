@@ -6,7 +6,6 @@ import LogoutButton from "../../../components/LogoutButton/LogoutButton";
 import LoginButton from "../../../components/LoginButton/LoginButton";
 import AboutRedirectButton from "../../../components/AboutRedirectButton/AboutRedirectButton";
 import _ from "lodash";
-require('dotenv').config();
 
 const APS105 = () => {
   const PORT = 5001;

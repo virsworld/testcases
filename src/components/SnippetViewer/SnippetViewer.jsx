@@ -3,7 +3,6 @@ import { EditorState } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
 import { oneDark } from "@codemirror/theme-one-dark";
 import { basicSetup } from "codemirror";
-require('dotenv').config();
 
 const SnippetViewer = ({ testCase, expectedOutput, directory, uploader, name }) => {
   const SERVER_URL = "https://testcases-server.onrender.com";
