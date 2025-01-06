@@ -12,15 +12,17 @@ const Home = () => {
   const PORT = 5001;
   const COURSE_API_PATH = `${SERVER_URL}/api/courses`;
 
-  // Fetch authentication status
+  // **Modified useEffect hook:**
   useEffect(() => {
     fetch(`${SERVER_URL}/auth/status`, { credentials: "include" })
       .then((res) => res.json())
-      .then((data) => setIsLoggedIn(data.loggedIn))
+      .then((data) => {
+        setIsLoggedIn(data.loggedIn); // Update isLoggedIn state based on response
+      })
       .catch((err) => console.error("Error fetching auth status:", err));
-  }, []);
+  }, []); // Empty dependency array ensures it runs only once on mount
 
-  // Fetch courses data
+  // Fetch courses data (unchanged)
   useEffect(() => {
     setLoading(true); // Set loading state to true before fetch
     fetch(COURSE_API_PATH)
