@@ -19,7 +19,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setIsLoggedIn(data.loggedIn))
       .catch((err) => console.error("Error fetching auth status:", err));
-    }, 100);
+    }, 5000);
   }, []);
 
   // Fetch courses data
