@@ -39,7 +39,7 @@ const ECE244 = () => {
   // Fetch grouped snippets
   const fetchGroupedSnippets = () => {
     setLoading(true);
-    fetch(GROUPED_SNIPPETS_PATH)
+    fetch(GROUPED_SNIPPETS_PATH, { credentials: "include" })
       .then((response) => response.json())
       .then((data) => setGroupedSnippets(data))
       .catch((err) => {
