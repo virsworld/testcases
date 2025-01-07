@@ -15,7 +15,7 @@ const Home = () => {
   // Fetch authentication status
   useEffect(() => {
     setTimeout(() => {
-      fetch(`https://testcasedb.netlify.app:${SERVER_URL}/auth/status`, { credentials: "include" })
+      fetch(`${SERVER_URL}/auth/status`, { credentials: "include" })
       .then((res) => res.json())
       .then((data) => setIsLoggedIn(data.loggedIn))
       .catch((err) => console.error("Error fetching auth status:", err));
