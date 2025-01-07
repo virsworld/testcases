@@ -86,6 +86,7 @@ const SnippetForm = ({ directory, numLabs, onSnippetAdded }) => {
 
       if (response.ok) {
         const data = await response.json();
+        console.log("Upload Response Data:", data);
         setMessage("Snippet uploaded successfully.");
         setFileName("");
         setTestCaseContent("");

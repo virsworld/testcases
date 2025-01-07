@@ -58,7 +58,10 @@ const ECE244 = () => {
     setLoading(true);
     fetch(USER_SNIPPETS_PATH, { credentials: "include" })
       .then((response) => response.json())
-      .then((data) => setUserSnippets(data))
+      .then((data) => {
+        console.log("User Snippets Data:", data);
+        setUserSnippets(data)
+      })
       .catch((err) => {
         console.error("Error fetching user snippets:", err);
         setErrorMessage("Failed to fetch user snippets. Ensure you are logged in.");
