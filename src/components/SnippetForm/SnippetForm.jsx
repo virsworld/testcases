@@ -54,17 +54,24 @@ const SnippetForm = ({ directory, numLabs, onSnippetAdded }) => {
     };
   }, []);
 
+  const sanitizeFileName = (name) => {
+    // Replace invalid characters with an underscore
+    return name.replace(/[<>:"/\\|?*\s]/g, '_').replace(/_+/g, '_').trim();
+  };
+
   const handleUpload = async (e) => {
     e.preventDefault();
     setMessage("");
     setError("");
     setLoading(true);
 
-    if (!fileName || !testCaseContent || !outputContent || !lab) {
-      setError("All fields are required.");
-      setLoading(false);
-      return;
-    }
+  const sanitizedFileName = sanitizeFileName(fileName);
+
+  if (!sanitizedFileName || !testCaseContent || !outputContent || !lab) {
+    setError("All fields are required.");
+    setLoading(false);
+    return;
+  }
 
     try {
       const testCaseFilename = `${fileName}_input.txt`;
