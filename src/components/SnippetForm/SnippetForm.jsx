@@ -55,8 +55,8 @@ const SnippetForm = ({ directory, numLabs, onSnippetAdded }) => {
   }, []);
 
   const sanitizeFileName = (name) => {
-    // Replace invalid characters with an underscore
-    return name.replace(/[<>:"/\\|?*\s]/g, '_').replace(/_+/g, '_').trim();
+    // Replace invalid characters with a hyphen
+    return name.replace(/[<>:"/\\|?*\s]/g, '-').replace(/-+/g, '-').trim();
   };
 
   const handleUpload = async (e) => {
