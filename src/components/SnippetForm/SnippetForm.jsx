@@ -74,8 +74,8 @@ const SnippetForm = ({ directory, numLabs, onSnippetAdded }) => {
   }
 
     try {
-      const testCaseFilename = `${fileName}_input.txt`;
-      const outputFilename = `${fileName}_output.txt`;
+      const testCaseFilename = `${sanitizedFileName}_input.txt`;
+      const outputFilename = `${sanitizedFileName}_output.txt`;
 
       const response = await fetch(`${SERVER_URL}/api/snippets?directory=${directory}&lab=${lab}`, {
         method: "POST",
