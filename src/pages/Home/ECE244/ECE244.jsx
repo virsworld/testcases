@@ -239,7 +239,7 @@ const ECE244 = () => {
         {formVisible && (
           <SnippetForm
             directory={COURSE_CODE}
-            numLabs={9}
+            numLabs={6}
             onSnippetAdded={handleSnippetAdded}
           />
         )}
